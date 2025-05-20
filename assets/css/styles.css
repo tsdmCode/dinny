@@ -1,38 +1,256 @@
-/* #region globals, variables and imports */
-@import 'reset.css';
+@import url(reset.css);
+body {
+  margin: 0.5rem;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  background-color: #212121;
+  font-family: oswald, sans-serif;
+}
 
-/* #endregion  */
+header {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
+header img {
+  width: 100%;
+  aspect-ratio: 2/1;
+}
+header h1 {
+  position: absolute;
+  background-color: #ffffff;
+  border: 0.5rem solid black;
+  color: #b4211a;
+  padding: 1rem;
+  font-size: 5rem;
+  left: 5%;
+  bottom: 10%;
+}
 
-/* #region nav */
+nav {
+  background-color: #414040;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+}
+nav ul {
+  display: flex;
+  flex-direction: column;
+}
+nav ul:last-of-type li a {
+  color: white;
+}
+nav ul:last-of-type li:first-of-type {
+  background-color: #00a2ed;
+}
+nav ul:last-of-type li:last-of-type {
+  background-color: green;
+}
+nav a {
+  text-decoration: none;
+  color: #c55d2a;
+  font-family: oswald, sans-serif;
+  font-weight: bold;
+}
+nav li {
+  padding: 1rem 1rem;
+}
+nav li:last-child a {
+  color: #798eb9;
+}
 
-/* #endregion  */
+main {
+  margin: 1rem;
+}
 
-/* #section one  */
+section {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+section figure {
+  display: grid;
+}
+section article {
+  margin-bottom: 1rem;
+}
+section h2 {
+  color: #c55d2a;
+  font-size: 2rem;
+}
+section h2, section h3, section p {
+  margin: 1rem 0rem;
+}
+section h3 {
+  color: #798eb9;
+  font-size: 1.5rem;
+}
+section p {
+  color: #dddddd;
+}
+section img {
+  width: 100%;
+}
+section footer {
+  display: flex;
+  justify-content: flex-end;
+}
+section footer a {
+  color: #dddddd;
+}
 
-/* #endregion  */
+/* 
+#section-four {
+    figure {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
 
-/* #section two */
+        figure {
+            position: relative;
+            overflow: hidden;
 
-/* #endregion  */
+            img {
+                width: 100%;
+                display: block;
+            }
 
-/* #section three  */
+            figcaption {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(33,33,33,0.8);
+                color: #fff;
+                padding: 1rem;
+                opacity: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                transition: opacity 0.3s;
+            }
 
-/* #endregion  */
+            &:hover figcaption {
+                opacity: 1;
+            }
+        }
+    }
+} */
+footer figure {
+  margin: 1rem;
+  width: 100%;
+}
+footer iframe {
+  width: 90%;
+}
+footer h3 {
+  color: #c55d2a;
+  font-size: 1.5rem;
+  margin: 1rem 0rem;
+}
+footer h4 {
+  font-size: 1.25rem;
+  color: #c55d2a;
+  margin: 0.5rem 0rem;
+}
+footer ul {
+  margin-left: 0.5rem;
+}
+footer li {
+  margin: 0.5rem;
+}
+footer li, footer a {
+  color: #798eb9;
+}
 
-/* #region queries  */
+#section-four > figure {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
 
-/* #region screen  */
+#section-four h4 {
+  color: #798eb9;
+}
 
+#section-four > figure figure {
+  position: relative;
+  overflow: hidden;
+}
+
+#section-four > figure figure > figcaption {
+  position: absolute;
+  top: 100%;
+  background-color: rgba(33, 33, 33, 0.5843137255);
+  padding: 0.5rem;
+  transition: 0.5s ease-in-out;
+  height: 100%;
+}
+
+#section-four > figure figure:hover > figcaption {
+  top: 0;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1300px) {
+  nav {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  nav ul {
+    justify-content: flex-end;
+    flex-direction: row;
+  }
+  #section-two figure, #section-three figure {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  #section-two figure h3, #section-three figure h3 {
+    margin-top: 0rem;
+  }
+  #section-four > figure {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
 @media screen and (min-width: 1300px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  nav ul {
+    justify-content: flex-end;
+    flex-direction: row;
+  }
+  #section-two div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+  }
+  #section-three figure {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  #section-three figure h3 {
+    margin-top: 0rem;
+  }
+  #section-four > figure {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  footer {
+    display: flex;
+    grid-template-columns: repeat(2, 1fr 1fr);
+  }
+  footer figure {
+    margin-top: 0rem;
+    width: 50%;
+  }
+  footer iframe {
+    width: 100%;
+  }
 }
 
-/* #endregion  */
-
-/* #region tablet  */
-
-@media screen and (min-width: 769px) and (max-width: 1299px) {
-}
-
-/* #endregion  */
-
-/* #endregion  */
+/*# sourceMappingURL=styles.css.map */
